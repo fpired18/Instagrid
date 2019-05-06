@@ -13,6 +13,12 @@ class ViewStackView: UIView {
     @IBOutlet public var image2: UIImageView?
     @IBOutlet public var image3: UIImageView?
     @IBOutlet public var image4: UIImageView?
+    @IBOutlet public var view1: UIView?
+    @IBOutlet public var view3: UIView?
+    @IBOutlet weak var rectangleTopButton1: UIButton!
+    @IBOutlet weak var carreTopButton2: UIButton!
+    @IBOutlet weak var rectangleTopButton3: UIButton!
+    @IBOutlet weak var carreTopButton4: UIButton!
     
     enum NumberView {
         case topRectangle, bottomRectangle, noRectangle
@@ -28,14 +34,19 @@ class ViewStackView: UIView {
         switch numberView {
         case .topRectangle:
             image1?.isHidden = true
+            view1?.isHidden = true
             image3?.isHidden = false
+            view3?.isHidden = false
         case .bottomRectangle:
+            view1?.isHidden = false
             image1?.isHidden = false
             image3?.isHidden = true
+            view3?.isHidden = true
         case .noRectangle:
+            view1?.isHidden = false
             image1?.isHidden = false
             image3?.isHidden = false
+            view3?.isHidden = false
         }
     }
-
 }

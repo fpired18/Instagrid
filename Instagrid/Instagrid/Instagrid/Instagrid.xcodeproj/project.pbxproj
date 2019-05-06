@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8572D0D6227C8F330001EDF0 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8572D0D5227C8F330001EDF0 /* ThirstySoftRegular.otf */; };
-		8572D0D8227C8F440001EDF0 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8572D0D7227C8F440001EDF0 /* Delm-Medium.otf */; };
+		8572D0F022809F0E0001EDF0 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8572D0EF22809F0E0001EDF0 /* ThirstySoftRegular.otf */; };
+		8572D0F222809F190001EDF0 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8572D0F122809F190001EDF0 /* Delm-Medium.otf */; };
 		857A88392277642C00D6F20B /* ViewStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857A88382277642C00D6F20B /* ViewStackView.swift */; };
 		E44689D1224E632A00DCCF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44689D0224E632A00DCCF15 /* AppDelegate.swift */; };
 		E44689D3224E632A00DCCF15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44689D2224E632A00DCCF15 /* ViewController.swift */; };
@@ -18,8 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8572D0D5227C8F330001EDF0 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = ../../../../../../../../Downloads/AsstesFonts/Fonts/ThirstySoftRegular.otf; sourceTree = "<group>"; };
-		8572D0D7227C8F440001EDF0 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../../../../../../../Downloads/AsstesFonts/Fonts/Delm-Medium.otf"; sourceTree = "<group>"; };
+		8572D0EF22809F0E0001EDF0 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = ../../../../../../../../../Downloads/AsstesFonts/Fonts/ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		8572D0F122809F190001EDF0 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../../../../../../../../Downloads/AsstesFonts/Fonts/Delm-Medium.otf"; sourceTree = "<group>"; };
 		857A88382277642C00D6F20B /* ViewStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackView.swift; sourceTree = "<group>"; };
 		E44689CD224E632A00DCCF15 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44689D0224E632A00DCCF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 				E44689D9224E632B00DCCF15 /* LaunchScreen.storyboard */,
 				E44689D0224E632A00DCCF15 /* AppDelegate.swift */,
 				E44689D7224E632B00DCCF15 /* Assets.xcassets */,
-				8572D0D5227C8F330001EDF0 /* ThirstySoftRegular.otf */,
-				8572D0D7227C8F440001EDF0 /* Delm-Medium.otf */,
+				8572D0EF22809F0E0001EDF0 /* ThirstySoftRegular.otf */,
+				8572D0F122809F190001EDF0 /* Delm-Medium.otf */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,10 +164,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8572D0D6227C8F330001EDF0 /* ThirstySoftRegular.otf in Resources */,
 				E44689DB224E632B00DCCF15 /* LaunchScreen.storyboard in Resources */,
-				8572D0D8227C8F440001EDF0 /* Delm-Medium.otf in Resources */,
+				8572D0F222809F190001EDF0 /* Delm-Medium.otf in Resources */,
 				E44689D8224E632B00DCCF15 /* Assets.xcassets in Resources */,
+				8572D0F022809F0E0001EDF0 /* ThirstySoftRegular.otf in Resources */,
 				E44689D6224E632A00DCCF15 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
