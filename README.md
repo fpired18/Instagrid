@@ -1,2 +1,0 @@
-# Instagrid
-Combiner plusieurs photos
