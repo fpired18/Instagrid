@@ -31,8 +31,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragTopPartageImage))
         viewStackView.isUserInteractionEnabled = true
         viewStackView.addGestureRecognizer(panGesture)
-        
-        //makeNewViewStackView?.image = UIImage
+       
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -118,7 +117,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func tapImage4(_ sender: Any) {
-        
         tag = 4
         imagePickerControllerChoice()
     }
@@ -128,9 +126,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let translation = sender.translation(in: self.viewStackView)
         viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.viewStackView)
+        shareUsingActivityVC(viewStackView)
+        
     }
     
     @IBAction func dragLeftPartageImage(_ sender: UIScreenEdgePanGestureRecognizer) {
+    }
+    
+    func shareUsingActivityVC(_ : AnyObject) {
+        let activityVC = UIActivityViewController.init(activityItems: ["www.iostutorialjunction.com", viewStackView as Any], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.viewStackView
+        self.present(activityVC, animated:  true, completion: nil)
     }
 }
 
