@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var rectangleTop: UIButton!
@@ -15,12 +16,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var twoRectangles: UIButton!
     @IBOutlet weak var rectangleNo: UIButton!
     @IBOutlet weak var viewStackView: ViewStackView!
-    var makeNewViewStackView: UIImageView?
     
     @IBOutlet weak var left: UIImageView!
     @IBOutlet weak var up: UIImageView!
-    
-
     
     var tag = 0
     var panGesture = UIPanGestureRecognizer()
@@ -48,6 +46,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func rectangleTopButton(_ sender: UIButton) {
         sender.pulsate()
+        viewStackView.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
         rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
         rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
         twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
@@ -57,6 +57,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func rectangleBottomButton(_ sender: UIButton) {
         sender.flash()
+        viewStackView.backgroundColor = #colorLiteral(red: 0.5810584426, green: 0.1285524964, blue: 0.5745313764, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
         rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
         rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
         twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
@@ -65,6 +67,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func twoRectanglesButton(_ sender: UIButton) {
+        viewStackView.backgroundColor = UIColor.gray
+        view.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         sender.shake()
         rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
         rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
@@ -75,6 +79,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func rectangleNoButton(_ sender: UIButton) {
         sender.flashBis()
+        viewStackView.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
+        view.backgroundColor = UIColor.purple
         rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
         rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
         twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
@@ -96,7 +102,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        
+       
         switch tag {
         case 1:
             viewStackView.image1?.image = image
@@ -170,5 +176,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         activityVC.popoverPresentationController?.sourceView = self.viewStackView
         self.present(activityVC, animated:  true, completion: nil)
     }
+
 }
 

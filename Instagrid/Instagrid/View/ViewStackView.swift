@@ -27,27 +27,29 @@ class ViewStackView: UIView {
     }
     
     private func setNumberView ( _ numberView: NumberView) {
+        UIView.animate(withDuration: 1.0, animations: ({
         switch numberView {
         case .topRectangle:
-            image1.isHidden = true
-            view1?.isHidden = true
-            image3?.isHidden = false
-            view3?.isHidden = false
+            self.image1.isHidden = true
+            self.view1?.isHidden = true
+            self.image3?.isHidden = false
+            self.view3?.isHidden = false
         case .bottomRectangle:
-            view1?.isHidden = false
-            image1.isHidden = false
-            image3?.isHidden = true
-            view3?.isHidden = true
+            self.view1?.isHidden = false
+            self.image1.isHidden = false
+            self.image3?.isHidden = true
+            self.view3?.isHidden = true
         case .twoRectangles:
-            image1.isHidden = true
-            view1?.isHidden = true
-            image3?.isHidden = true
-            view3?.isHidden = true
+            self.image1.isHidden = true
+            self.view1?.isHidden = true
+            self.image3?.isHidden = true
+            self.view3?.isHidden = true
         case .noRectangle:
-            view1?.isHidden = false
-            image1.isHidden = false
-            image3?.isHidden = false
-            view3?.isHidden = false
+            self.view1?.isHidden = false
+            self.image1.isHidden = false
+            self.image3?.isHidden = false
+            self.view3?.isHidden = false
         }
+        }))
     }
 }
