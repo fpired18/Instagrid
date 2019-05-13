@@ -10,14 +10,14 @@ import UIKit
 
 class ViewStackView: UIView {
     @IBOutlet public var image1: UIImageView!
-    @IBOutlet public var image2: UIImageView?
-    @IBOutlet public var image3: UIImageView?
-    @IBOutlet public var image4: UIImageView?
+    @IBOutlet public var image2: UIImageView!
+    @IBOutlet public var image3: UIImageView!
+    @IBOutlet public var image4: UIImageView!
     @IBOutlet public var view1: UIView?
     @IBOutlet public var view3: UIView?
     
     enum NumberView {
-        case topRectangle, bottomRectangle, noRectangle
+        case topRectangle, bottomRectangle, twoRectangles, noRectangle
     }
     
     var numberView: NumberView = .noRectangle {
@@ -36,6 +36,11 @@ class ViewStackView: UIView {
         case .bottomRectangle:
             view1?.isHidden = false
             image1.isHidden = false
+            image3?.isHidden = true
+            view3?.isHidden = true
+        case .twoRectangles:
+            image1.isHidden = true
+            view1?.isHidden = true
             image3?.isHidden = true
             view3?.isHidden = true
         case .noRectangle:

@@ -12,6 +12,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     @IBOutlet weak var rectangleTop: UIButton!
     @IBOutlet weak var rectangleBottom: UIButton!
+    @IBOutlet weak var twoRectangles: UIButton!
     @IBOutlet weak var rectangleNo: UIButton!
     @IBOutlet weak var viewStackView: ViewStackView!
     var makeNewViewStackView: UIImageView?
@@ -19,56 +20,70 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var left: UIImageView!
     @IBOutlet weak var up: UIImageView!
     
-    @IBOutlet var imageValidation: [UIImageView]!
+
     
-    var imageArray = [UIImage]()
-    var indice = 0
     var tag = 0
     var panGesture = UIPanGestureRecognizer()
+    var edgePan = UIScreenEdgePanGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(dragLeftPartageImage))
+        viewStackView.addGestureRecognizer(edgePan)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragTopPartageImage))
-        viewStackView.isUserInteractionEnabled = true
         viewStackView.addGestureRecognizer(panGesture)
-       
+        viewStackView.isUserInteractionEnabled = true
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
         if UIDevice.current.orientation.isLandscape {
             left.isHidden = false
             up.isHidden = true
-        }
-        else {
+        } else {
             left.isHidden = true
             up.isHidden = false
         }
     }
     
-    @IBAction func rectangleTopButton(_ sender: Any) {
+    @IBAction func rectangleTopButton(_ sender: UIButton) {
+        sender.pulsate()
+        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
+        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
+        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
+        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Layout 4"), for: UIControl.State.normal)
         viewStackView.numberView = .topRectangle
-        imageValidation[0].isHidden = false
-        imageValidation[1].isHidden = true
-        imageValidation[2].isHidden = true
     }
     
-    @IBAction func rectangleBottomButton(_ sender: Any) {
+    @IBAction func rectangleBottomButton(_ sender: UIButton) {
+        sender.flash()
+        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
+        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
+        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
+        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Layout 4"), for: UIControl.State.normal)
         viewStackView.numberView = .bottomRectangle
-        imageValidation[0].isHidden = true
-        imageValidation[1].isHidden = false
-        imageValidation[2].isHidden = true
     }
     
-    @IBAction func rectangleNoBotton(_ sender: Any) {
+    @IBAction func twoRectanglesButton(_ sender: UIButton) {
+        sender.shake()
+        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
+        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
+        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
+        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Layout 4"), for: UIControl.State.normal)
+        viewStackView.numberView = .twoRectangles
+    }
+    
+    @IBAction func rectangleNoButton(_ sender: UIButton) {
+        sender.flashBis()
+        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
+        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
+        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
+        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
         viewStackView.numberView = .noRectangle
-        imageValidation[0].isHidden = true
-        imageValidation[1].isHidden = true
-        imageValidation[2].isHidden = false
     }
     
-
     @IBAction func tapImage1(_ sender: Any) {
-        tag = 1
+        tag = viewStackView.image1.tag
         imagePickerControllerChoice()
     }
     
@@ -107,34 +122,51 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func tapImage2(_ sender: Any) {
-        tag = 2
+        tag = viewStackView.image2.tag
         imagePickerControllerChoice()
     }
     
     @IBAction func tapImage3(_ sender: Any) {
-        tag = 3
+        tag = viewStackView.image3.tag
         imagePickerControllerChoice()
     }
     
     @IBAction func tapImage4(_ sender: Any) {
-        tag = 4
+        tag = viewStackView.image4.tag
         imagePickerControllerChoice()
     }
     
     @IBAction func dragTopPartageImage(_ sender: UIPanGestureRecognizer) {
+//        print("____________________________________")
+//        print("Je suis dans le dragTop")
+//        print("____________________________________")
         self.view.bringSubviewToFront(viewStackView)
         let translation = sender.translation(in: self.viewStackView)
         viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.viewStackView)
-        shareUsingActivityVC(viewStackView)
-        
+        if viewStackView.frame.origin.y <= view.frame.origin.y {
+          shareUsingActivityVC(viewStackView)
+        }
     }
     
     @IBAction func dragLeftPartageImage(_ sender: UIScreenEdgePanGestureRecognizer) {
+//        print("____________________________________")
+//        print("Je suis dans le dragLeft")
+//        print("____________________________________")
+        if sender.state == .recognized {
+            print("Screen edge swiped !")
+        }
+        self.view.bringSubviewToFront(viewStackView)
+        let translation = sender.translation(in: self.viewStackView)
+        viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
+        sender.setTranslation(CGPoint.zero, in: self.viewStackView)
+        if viewStackView.frame.origin.x <= view.frame.origin.x {
+            shareUsingActivityVC(viewStackView)
+        }
     }
     
-    func shareUsingActivityVC(_ : AnyObject) {
-        let activityVC = UIActivityViewController.init(activityItems: ["www.iostutorialjunction.com", viewStackView as Any], applicationActivities: nil)
+    @objc func shareUsingActivityVC(_ : AnyObject) {
+        let activityVC = UIActivityViewController.init(activityItems: ["www,iostutorialjunction.com", viewStackView as Any], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.viewStackView
         self.present(activityVC, animated:  true, completion: nil)
     }
