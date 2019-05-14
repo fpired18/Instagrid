@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var rectangleTop: UIButton!
@@ -22,19 +21,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     var tag = 0
     var panGesture = UIPanGestureRecognizer()
-    var edgePan = UIScreenEdgePanGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(dragLeftPartageImage))
-        viewStackView.addGestureRecognizer(edgePan)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragTopPartageImage))
         viewStackView.addGestureRecognizer(panGesture)
         viewStackView.isUserInteractionEnabled = true
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        
         if UIDevice.current.orientation.isLandscape {
             left.isHidden = false
             up.isHidden = true
@@ -119,7 +114,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         default:
             return
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -143,31 +137,26 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func dragTopPartageImage(_ sender: UIPanGestureRecognizer) {
-//        print("____________________________________")
-//        print("Je suis dans le dragTop")
-//        print("____________________________________")
-        self.view.bringSubviewToFront(viewStackView)
+        //        //        self.view.bringSubviewToFront(viewStackView)
         let translation = sender.translation(in: self.viewStackView)
         viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.viewStackView)
-        if viewStackView.frame.origin.y <= view.frame.origin.y {
-          shareUsingActivityVC(viewStackView)
+        
+        if UIDevice.current.orientation.isPortrait {
+            if viewStackView.frame.origin.y <= view.frame.origin.y {
+                shareUsingActivityVC(viewStackView)
+                UIView.animate(withDuration: 0.4, animations: ({
+                    self.viewStackView.center = self.view.center
+                }))
+            }
         }
-    }
-    
-    @IBAction func dragLeftPartageImage(_ sender: UIScreenEdgePanGestureRecognizer) {
-//        print("____________________________________")
-//        print("Je suis dans le dragLeft")
-//        print("____________________________________")
-        if sender.state == .recognized {
-            print("Screen edge swiped !")
-        }
-        self.view.bringSubviewToFront(viewStackView)
-        let translation = sender.translation(in: self.viewStackView)
-        viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
-        sender.setTranslation(CGPoint.zero, in: self.viewStackView)
-        if viewStackView.frame.origin.x <= view.frame.origin.x {
-            shareUsingActivityVC(viewStackView)
+        else {
+            if viewStackView.frame.origin.x <= view.frame.origin.x {
+                shareUsingActivityVC(viewStackView)
+                UIView.animate(withDuration: 0.4, animations: ({
+                    self.viewStackView.center = self.view.center
+                }))
+            }
         }
     }
     
