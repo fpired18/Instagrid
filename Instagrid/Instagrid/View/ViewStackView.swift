@@ -28,28 +28,28 @@ class ViewStackView: UIView {
     
     private func setNumberView ( _ numberView: NumberView) {
         UIView.animate(withDuration: 1.0, animations: ({
-        switch numberView {
-        case .topRectangle:
-            self.image1.isHidden = true
-            self.view1?.isHidden = true
-            self.image3?.isHidden = false
-            self.view3?.isHidden = false
-        case .bottomRectangle:
-            self.view1?.isHidden = false
-            self.image1.isHidden = false
-            self.image3?.isHidden = true
-            self.view3?.isHidden = true
-        case .twoRectangles:
-            self.image1.isHidden = true
-            self.view1?.isHidden = true
-            self.image3?.isHidden = true
-            self.view3?.isHidden = true
-        case .noRectangle:
-            self.view1?.isHidden = false
-            self.image1.isHidden = false
-            self.image3?.isHidden = false
-            self.view3?.isHidden = false
-        }
+            switch numberView {
+            case .topRectangle:
+                self.image1.isHidden = true
+                self.view1?.isHidden = true
+                self.image3?.isHidden = false
+                self.view3?.isHidden = false
+            case .bottomRectangle:
+                self.view1?.isHidden = false
+                self.image1.isHidden = false
+                self.image3?.isHidden = true
+                self.view3?.isHidden = true
+            case .twoRectangles:
+                self.image1.isHidden = true
+                self.view1?.isHidden = true
+                self.image3?.isHidden = true
+                self.view3?.isHidden = true
+            case .noRectangle:
+                self.view1?.isHidden = false
+                self.image1.isHidden = false
+                self.image3?.isHidden = false
+                self.view3?.isHidden = false
+            }
         }))
     }
 }

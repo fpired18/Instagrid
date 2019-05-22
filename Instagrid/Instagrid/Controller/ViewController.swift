@@ -9,16 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
     @IBOutlet weak var rectangleTop: UIButton!
     @IBOutlet weak var rectangleBottom: UIButton!
     @IBOutlet weak var twoRectangles: UIButton!
     @IBOutlet weak var rectangleNo: UIButton!
     @IBOutlet weak var viewStackView: ViewStackView!
-    
     @IBOutlet weak var left: UIImageView!
     @IBOutlet weak var up: UIImageView!
-    
     var tag = 0
     var panGesture = UIPanGestureRecognizer()
     
@@ -28,7 +26,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         viewStackView.addGestureRecognizer(panGesture)
         viewStackView.isUserInteractionEnabled = true
     }
-    
+    // THIS FUNCTION DETECTS THE LANDSCAPE POSITION OF THE PHONE
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
             left.isHidden = false
@@ -38,15 +36,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             up.isHidden = false
         }
     }
-    
+    //THIS FUNCTION CHANGES THE BACKGROUND IMAGE OF THE FOUR BUTTONS AND ACTIVATES THE NUMBER OF PHOTOS VISIBLE BY viewStackView.numberView = .
     @IBAction func rectangleTopButton(_ sender: UIButton) {
         sender.pulsate()
         viewStackView.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         view.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
-        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
-        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
-        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
-        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Layout 4"), for: UIControl.State.normal)
+        imageInitialization(image1: #imageLiteral(resourceName: "Selected"), image2: #imageLiteral(resourceName: "Layout 2"), image3: #imageLiteral(resourceName: "Layout 3"), image4: #imageLiteral(resourceName: "Layout 4"))
         viewStackView.numberView = .topRectangle
     }
     
@@ -54,10 +49,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         sender.flash()
         viewStackView.backgroundColor = #colorLiteral(red: 0.5810584426, green: 0.1285524964, blue: 0.5745313764, alpha: 1)
         view.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
-        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
-        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
-        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
-        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Layout 4"), for: UIControl.State.normal)
+        imageInitialization(image1: #imageLiteral(resourceName: "Layout 1"), image2: #imageLiteral(resourceName: "Selected"), image3: #imageLiteral(resourceName: "Layout 3"), image4: #imageLiteral(resourceName: "Layout 4"))
         viewStackView.numberView = .bottomRectangle
     }
     
@@ -65,10 +57,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         viewStackView.backgroundColor = UIColor.gray
         view.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         sender.shake()
-        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
-        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
-        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
-        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Layout 4"), for: UIControl.State.normal)
+        imageInitialization(image1: #imageLiteral(resourceName: "Layout 1"), image2: #imageLiteral(resourceName: "Layout 2"), image3: #imageLiteral(resourceName: "Selected"), image4: #imageLiteral(resourceName: "Layout 4"))
         viewStackView.numberView = .twoRectangles
     }
     
@@ -76,13 +65,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         sender.flashBis()
         viewStackView.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
         view.backgroundColor = UIColor.purple
-        rectangleTop.setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
-        rectangleBottom.setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
-        twoRectangles.setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
-        rectangleNo.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
+        imageInitialization(image1: #imageLiteral(resourceName: "Layout 1"), image2: #imageLiteral(resourceName: "Layout 2"), image3: #imageLiteral(resourceName: "Layout 3"), image4: #imageLiteral(resourceName: "Selected"))
         viewStackView.numberView = .noRectangle
     }
     
+    private func imageInitialization (image1: UIImage, image2: UIImage, image3: UIImage, image4: UIImage) {
+        rectangleTop.setBackgroundImage(image1, for: UIControl.State.normal)
+        rectangleBottom.setBackgroundImage(image2, for: UIControl.State.normal)
+        twoRectangles.setBackgroundImage(image3, for: UIControl.State.normal)
+        rectangleNo.setBackgroundImage(image4, for: UIControl.State.normal)
+    }
+    // THIS ACTION CALLS THE FUNCTION THAT I WILL SEEK FOR A PHOTO IN LIBRARY
     @IBAction func tapImage1(_ sender: Any) {
         tag = viewStackView.image1.tag
         imagePickerControllerChoice()
@@ -97,10 +90,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-       
         switch tag {
         case 1:
             viewStackView.image1?.image = image
+            // HERE YOU MISS THE MOST BLUE TO INSTALL THE PHOTO SELECTED IN LIBRARY
             viewStackView.image1?.contentMode = .scaleAspectFill
         case 2:
             viewStackView.image2?.image = image
@@ -137,20 +130,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func dragTopPartageImage(_ sender: UIPanGestureRecognizer) {
-        //        //        self.view.bringSubviewToFront(viewStackView)
         let translation = sender.translation(in: self.viewStackView)
         viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.viewStackView)
-        
         if UIDevice.current.orientation.isPortrait {
+            //HERE WE DETECT THE Y VALUE OF THE VIEW AND COMPARE IT TO THE SUPER VIEW IF THERE IS EQUAL TO ZERO THE SHARING APPLICATIONS
             if viewStackView.frame.origin.y <= view.frame.origin.y {
                 shareUsingActivityVC(viewStackView)
+                // HERE WE HAVE BEEN SHOWN AFTER REPOSITIONING THE VIEW TO THE CENTER WITH AN ANIMATION OF 4 SECONDS
                 UIView.animate(withDuration: 0.4, animations: ({
                     self.viewStackView.center = self.view.center
                 }))
             }
-        }
-        else {
+        } else {
             if viewStackView.frame.origin.x <= view.frame.origin.x {
                 shareUsingActivityVC(viewStackView)
                 UIView.animate(withDuration: 0.4, animations: ({
@@ -161,10 +153,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @objc func shareUsingActivityVC(_ : AnyObject) {
+        // HERE'S THE MENU OF SHARING APPLICATIONS
         let activityVC = UIActivityViewController.init(activityItems: ["www,iostutorialjunction.com", viewStackView as Any], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.viewStackView
         self.present(activityVC, animated:  true, completion: nil)
     }
-
 }
-

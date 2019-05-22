@@ -6,7 +6,6 @@
 //  Copyright © 2019 fpired. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension UIButton {
@@ -20,7 +19,6 @@ extension UIButton {
         pulse.repeatCount = 2
         pulse.initialVelocity = 0.5
         pulse.damping = 1.0
-        
         layer.add(pulse, forKey: nil)
     }
     
@@ -32,7 +30,6 @@ extension UIButton {
         flash.autoreverses = true
         flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         flash.repeatCount = 3
-        
         layer.add(flash, forKey: nil)
     }
     
@@ -41,18 +38,15 @@ extension UIButton {
         shake.duration = 0.1
         shake.repeatCount = 2
         shake.autoreverses = true
-        
         let fromPoint = CGPoint(x: center.x - 5, y: center.y)
         let fromValue = NSValue(cgPoint: fromPoint)
-        
         let toPoint = CGPoint(x: center.x + 5, y: center.y)
         let toValue = NSValue(cgPoint: toPoint)
-        
         shake.fromValue = fromValue
         shake.toValue = toValue
-       
         layer.add(shake, forKey: nil)
     }
+    
     func flashBis() {
         let flashBis = CASpringAnimation(keyPath: "opacity")
         flashBis.duration = 0.7
@@ -61,7 +55,6 @@ extension UIButton {
         flashBis.autoreverses = true
         flashBis.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         flashBis.repeatCount = 3
-        
         layer.add(flashBis, forKey: nil)
     }
 }
