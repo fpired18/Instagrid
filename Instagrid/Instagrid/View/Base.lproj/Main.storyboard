@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP2-J0-rZk">
-                                <rect key="frame" x="132" y="20" width="150" height="35"/>
+                                <rect key="frame" x="132" y="20" width="150" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="mwe-v3-4JP"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="vwK-LP-eSv">
@@ -44,7 +44,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-P7-OfE">
                                         <rect key="frame" x="10" y="10" width="334" height="342"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7iq-oJ-hao">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7iq-oJ-hao" userLabel="Stack View2ViewsUp">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="166"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QqM-oq-ggv" userLabel="View1">
@@ -93,7 +93,7 @@
                                                 </constraints>
                                                 <variation key="heightClass=compact" spacing="10"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cj7-pI-Rvz">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cj7-pI-Rvz" userLabel="Stack View2ViewsDown">
                                                 <rect key="frame" x="0.0" y="176" width="334" height="166"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVu-Oj-LUr" userLabel="View3">
@@ -185,7 +185,6 @@
                                     <outlet property="view1" destination="QqM-oq-ggv" id="0TB-lS-iQY"/>
                                     <outlet property="view3" destination="sVu-Oj-LUr" id="I9U-Uf-7Uf"/>
                                     <outletCollection property="gestureRecognizers" destination="Xlr-Y9-V9t" appends="YES" id="ziy-0h-IX5"/>
-                                    <outletCollection property="gestureRecognizers" destination="Kav-d1-9t5" appends="YES" id="IqU-5e-lpS"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-Jd-ycB">
@@ -270,14 +269,11 @@
                                         <exclude reference="XIt-Rl-bfs"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Kav-d1-9t5" appends="YES" id="uE7-CR-Lkt"/>
-                                </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="23o-se-yuZ">
                                 <rect key="frame" x="30" y="636" width="354" height="80"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PO-xb-znx">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PO-xb-znx" userLabel="ViewButton1">
                                         <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-cB-wZr" userLabel="RectangleDessus">
@@ -302,7 +298,7 @@
                                             <constraint firstAttribute="bottom" secondItem="lKm-cB-wZr" secondAttribute="bottom" id="yxa-kT-1dq"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP9-hu-g4D">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP9-hu-g4D" userLabel="ViewButton2">
                                         <rect key="frame" x="89.666666666666686" y="0.0" width="85.333333333333314" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNu-l7-OgB" userLabel="DeuxCarresDessus">
@@ -321,7 +317,7 @@
                                             <constraint firstAttribute="trailing" secondItem="YNu-l7-OgB" secondAttribute="trailing" id="xOa-w0-Zki"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-S7-qwm">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-S7-qwm" userLabel="ViewButton3">
                                         <rect key="frame" x="179" y="0.0" width="85.666666666666686" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9B7-bG-MgH" userLabel="twoRectangles">
@@ -340,7 +336,7 @@
                                             <constraint firstItem="9B7-bG-MgH" firstAttribute="top" secondItem="VLg-S7-qwm" secondAttribute="top" id="sQE-zv-fNC"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-1w-shF">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-1w-shF" userLabel="ViewButton4">
                                         <rect key="frame" x="268.66666666666669" y="0.0" width="85.333333333333314" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztQ-dZ-ayU" userLabel="QuatreCarres">
@@ -496,12 +492,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Kav-d1-9t5">
-                    <rectEdge key="edges" left="YES"/>
-                    <connections>
-                        <action selector="dragLeftPartageImage:" destination="BYZ-38-t0r" id="Mv4-0i-MKe"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Xlr-Y9-V9t">
                     <connections>
                         <action selector="dragTopPartageImage:" destination="BYZ-38-t0r" id="WBx-ci-zw5"/>
