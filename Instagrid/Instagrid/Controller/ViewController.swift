@@ -8,8 +8,11 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var swipeLeftToShare: UILabel!
+    @IBOutlet weak var swipeUpToShare: UILabel!
     @IBOutlet weak var rectangleTop: UIButton!
     @IBOutlet weak var rectangleBottom: UIButton!
     @IBOutlet weak var twoRectangles: UIButton!
@@ -30,10 +33,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
             left.isHidden = false
+            swipeLeftToShare.isHidden = false
             up.isHidden = true
+            swipeUpToShare.isHidden = true
         } else {
             left.isHidden = true
+            swipeLeftToShare.isHidden = true
             up.isHidden = false
+            swipeUpToShare.isHidden = false
         }
     }
     //THIS FUNCTION CHANGES THE BACKGROUND IMAGE OF THE FOUR BUTTONS AND ACTIVATES THE NUMBER OF PHOTOS VISIBLE BY viewStackView.numberView = .
@@ -75,15 +82,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         twoRectangles.setBackgroundImage(image3, for: UIControl.State.normal)
         rectangleNo.setBackgroundImage(image4, for: UIControl.State.normal)
     }
-    // THIS ACTION CALLS THE FUNCTION THAT I WILL SEEK FOR A PHOTO IN LIBRARY
+    // THIS ACTION CALLS THE FUNCTION THAT I WILL SEEK FOR A PHOTO
     @IBAction func tapImage1(_ sender: Any) {
         tag = viewStackView.image1.tag
         imagePickerControllerChoice()
     }
-    
+   
     func imagePickerControllerChoice() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+         // Here we will choose an image whose type of resource is the photoLibrary
         imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePickerController, animated: true, completion: nil)
     }
@@ -154,8 +162,51 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @objc func shareUsingActivityVC(_ : AnyObject) {
         // HERE'S THE MENU OF SHARING APPLICATIONS
-        let activityVC = UIActivityViewController.init(activityItems: ["www,iostutorialjunction.com", viewStackView as Any], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.viewStackView
-        self.present(activityVC, animated:  true, completion: nil)
+        UIGraphicsBeginImageContext(viewStackView.frame.size)
+        viewStackView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        let activityVC = UIActivityViewController.init(activityItems: [image!], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+        
     }
+    
+}
+
+extension UIImage {
+    
+    class func combiningImage(firstImage: UIImage, secondImage: UIImage, thirdImage: UIImage, fourthImage: UIImage ) -> UIImage {
+        
+        let newImageWidth  = max(firstImage.size.width,  secondImage.size.width, thirdImage.size.width,  fourthImage.size.width)
+        let newImageHeight = max(firstImage.size.height, secondImage.size.height, thirdImage.size.height,  fourthImage.size.height)
+        let newImageSize = CGSize(width : newImageWidth, height: newImageHeight)
+        
+        UIGraphicsBeginImageContextWithOptions(newImageSize, false, UIScreen.main.scale)
+        
+        let firstImageDrawX  = round((newImageSize.width  - firstImage.size.width  ) / 2)
+        let firstImageDrawY  = round((newImageSize.height - firstImage.size.height ) / 2)
+        
+        let secondImageDrawX = round((newImageSize.width  - secondImage.size.width ) / 2)
+        let secondImageDrawY = round((newImageSize.height - secondImage.size.height) / 2)
+        
+        let thirdImageDrawX  = round((newImageSize.width  - thirdImage.size.width  ) / 2)
+        let thirdImageDrawY  = round((newImageSize.height - thirdImage.size.height ) / 2)
+        
+        let fourthImageDrawX = round((newImageSize.width  - fourthImage.size.width ) / 2)
+        let fourthImageDrawY = round((newImageSize.height - fourthImage.size.height) / 2)
+        
+        firstImage.draw(at: CGPoint(x: firstImageDrawX,  y: firstImageDrawY))
+        secondImage.draw(at: CGPoint(x: secondImageDrawX, y: secondImageDrawY))
+        thirdImage.draw(at: CGPoint(x: thirdImageDrawX,  y: thirdImageDrawY))
+        fourthImage.draw(at: CGPoint(x: fourthImageDrawX, y: fourthImageDrawY))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        
+        return image!
+        
+    }
+    
 }

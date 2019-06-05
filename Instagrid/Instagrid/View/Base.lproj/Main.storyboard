@@ -187,7 +187,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Xlr-Y9-V9t" appends="YES" id="ziy-0h-IX5"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-Jd-ycB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwipeUpToShare" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-Jd-ycB">
                                 <rect key="frame" x="117" y="159" width="180" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="Ne0-a8-PGj"/>
@@ -200,6 +200,22 @@
                                     <mask key="constraints">
                                         <exclude reference="Ne0-a8-PGj"/>
                                         <exclude reference="eMO-Iw-G7M"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwipeLeftToShare" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adw-6t-l3U">
+                                <rect key="frame" x="117" y="159" width="180" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="gdW-bm-GKW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="p7H-mR-NTv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="p7H-mR-NTv"/>
+                                        <exclude reference="gdW-bm-GKW"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -389,8 +405,10 @@
                             <constraint firstItem="Ien-Jd-ycB" firstAttribute="top" secondItem="rv3-nO-LXI" secondAttribute="bottom" constant="8" id="Avg-BR-Tk0"/>
                             <constraint firstItem="Ien-Jd-ycB" firstAttribute="centerX" secondItem="22B-qZ-FOr" secondAttribute="centerX" id="BGx-E5-PNo"/>
                             <constraint firstItem="PP2-J0-rZk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CD8-jb-4GG"/>
+                            <constraint firstItem="adw-6t-l3U" firstAttribute="centerY" secondItem="Ien-Jd-ycB" secondAttribute="centerY" id="EMJ-1u-ERC"/>
                             <constraint firstItem="Ien-Jd-ycB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hwp-eN-QEz"/>
                             <constraint firstItem="Ien-Jd-ycB" firstAttribute="top" secondItem="22B-qZ-FOr" secondAttribute="bottom" constant="8" id="Idl-DA-5DB"/>
+                            <constraint firstItem="adw-6t-l3U" firstAttribute="centerX" secondItem="Ien-Jd-ycB" secondAttribute="centerX" id="IvM-LS-aAa"/>
                             <constraint firstItem="22B-qZ-FOr" firstAttribute="centerX" secondItem="Ien-Jd-ycB" secondAttribute="centerX" id="Ixc-xx-uYt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="23o-se-yuZ" secondAttribute="trailing" constant="30" id="JCJ-0Z-Whl"/>
                             <constraint firstItem="XjM-fR-P2g" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kpx-rr-JtV"/>
@@ -486,6 +504,8 @@
                         <outlet property="rectangleBottom" destination="YNu-l7-OgB" id="oj9-a0-XeS"/>
                         <outlet property="rectangleNo" destination="ztQ-dZ-ayU" id="Arf-1b-OCm"/>
                         <outlet property="rectangleTop" destination="lKm-cB-wZr" id="dCN-co-inx"/>
+                        <outlet property="swipeLeftToShare" destination="adw-6t-l3U" id="SLS-Zu-8Tw"/>
+                        <outlet property="swipeUpToShare" destination="Ien-Jd-ycB" id="Vl4-0I-Mkv"/>
                         <outlet property="twoRectangles" destination="9B7-bG-MgH" id="sWD-ms-3kR"/>
                         <outlet property="up" destination="rv3-nO-LXI" id="hmq-xQ-EZm"/>
                         <outlet property="viewStackView" destination="XjM-fR-P2g" id="M7i-NN-YjR"/>
