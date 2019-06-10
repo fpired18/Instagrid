@@ -83,8 +83,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         rectangleNo.setBackgroundImage(image4, for: UIControl.State.normal)
     }
     // CALL OF THE FUNCTION THAT I WILL SEEKS FOR THE PHOTOS
-    @IBAction func tapImage1(_ sender: UIImageView) {
-        tag = sender.tag
+    @IBAction func tapImage1(_ sender: Any) {
+        tag = viewStackView.image1.tag
         imagePickerControllerChoice()
     }
    
@@ -122,19 +122,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         picker.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func tapImage2(_ sender: UIImageView) {
+    @IBAction func tapImage2(_ sender: Any) {
         
-        tag = sender.tag
+        tag = viewStackView.image2.tag
         imagePickerControllerChoice()
     }
     
-    @IBAction func tapImage3(_ sender: UIImageView) {
-        tag = sender.tag
+    @IBAction func tapImage3(_ sender: Any) {
+        tag = viewStackView.image3.tag
         imagePickerControllerChoice()
     }
     
-    @IBAction func tapImage4(_ sender: UIImageView) {
-        tag = sender.tag
+    @IBAction func tapImage4(_ sender: Any) {
+        tag = viewStackView.image4.tag
         imagePickerControllerChoice()
     }
     
