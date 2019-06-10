@@ -10,21 +10,19 @@
 		857A88392277642C00D6F20B /* ViewStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857A88382277642C00D6F20B /* ViewStackView.swift */; };
 		858EABF92283380700CD7222 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858EABF82283380700CD7222 /* Extentions.swift */; };
 		858EAC032285D16F00CD7222 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858EAC022285D16F00CD7222 /* UIButtonExtension.swift */; };
-		858EAC092289629900CD7222 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 858EAC082289629900CD7222 /* ThirstySoftRegular.otf */; };
-		858EAC0B228962A500CD7222 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 858EAC0A228962A500CD7222 /* Delm-Medium.otf */; };
 		E44689D1224E632A00DCCF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44689D0224E632A00DCCF15 /* AppDelegate.swift */; };
 		E44689D3224E632A00DCCF15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44689D2224E632A00DCCF15 /* ViewController.swift */; };
 		E44689D6224E632A00DCCF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44689D4224E632A00DCCF15 /* Main.storyboard */; };
 		E44689D8224E632B00DCCF15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44689D7224E632B00DCCF15 /* Assets.xcassets */; };
 		E44689DB224E632B00DCCF15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44689D9224E632B00DCCF15 /* LaunchScreen.storyboard */; };
+		F20A680522AE78430050928B /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F20A680322AE78420050928B /* Delm-Medium.otf */; };
+		F20A680622AE78430050928B /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F20A680422AE78420050928B /* ThirstySoftRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		857A88382277642C00D6F20B /* ViewStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStackView.swift; sourceTree = "<group>"; };
 		858EABF82283380700CD7222 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		858EAC022285D16F00CD7222 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		858EAC082289629900CD7222 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = ../../../../../../../Downloads/AsstesFonts/Fonts/ThirstySoftRegular.otf; sourceTree = "<group>"; };
-		858EAC0A228962A500CD7222 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../../../../../../Downloads/AsstesFonts/Fonts/Delm-Medium.otf"; sourceTree = "<group>"; };
 		E44689CD224E632A00DCCF15 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44689D0224E632A00DCCF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E44689D2224E632A00DCCF15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +30,8 @@
 		E44689D7224E632B00DCCF15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44689DA224E632B00DCCF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E44689DC224E632B00DCCF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F20A680322AE78420050928B /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		F20A680422AE78420050928B /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +105,8 @@
 				E44689D9224E632B00DCCF15 /* LaunchScreen.storyboard */,
 				E44689D0224E632A00DCCF15 /* AppDelegate.swift */,
 				E44689D7224E632B00DCCF15 /* Assets.xcassets */,
-				858EAC0A228962A500CD7222 /* Delm-Medium.otf */,
-				858EAC082289629900CD7222 /* ThirstySoftRegular.otf */,
+				F20A680322AE78420050928B /* Delm-Medium.otf */,
+				F20A680422AE78420050928B /* ThirstySoftRegular.otf */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,10 +170,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				858EAC092289629900CD7222 /* ThirstySoftRegular.otf in Resources */,
 				E44689DB224E632B00DCCF15 /* LaunchScreen.storyboard in Resources */,
-				858EAC0B228962A500CD7222 /* Delm-Medium.otf in Resources */,
 				E44689D8224E632B00DCCF15 /* Assets.xcassets in Resources */,
+				F20A680622AE78430050928B /* ThirstySoftRegular.otf in Resources */,
+				F20A680522AE78430050928B /* Delm-Medium.otf in Resources */,
 				E44689D6224E632A00DCCF15 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RB6QN3G3CG;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RB6QN3G3CG;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

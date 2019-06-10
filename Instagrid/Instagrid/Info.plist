@@ -48,5 +48,7 @@
 		<string>ThirstySoftRegular.otf</string>
 		<string>Delm-Medium.otf</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app requires access to photo library</string>
 </dict>
 </plist>

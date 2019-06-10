@@ -29,7 +29,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         viewStackView.addGestureRecognizer(panGesture)
         viewStackView.isUserInteractionEnabled = true
     }
-    // THIS FUNCTION DETECTS THE LANDSCAPE POSITION OF THE PHONE
+    // DETECTION OF THE LANDSCAPE POSITION OF THE PHONE
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
             left.isHidden = false
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             swipeUpToShare.isHidden = false
         }
     }
-    //THIS FUNCTION CHANGES THE BACKGROUND IMAGE OF THE FOUR BUTTONS AND ACTIVATES THE NUMBER OF PHOTOS VISIBLE BY viewStackView.numberView = .
+    //CHANGE THE BACKGROUND IMAGE OF THE FOUR BUTTONS AND ACTIVATES THE NUMBER OF PHOTOS VISIBLE BY viewStackView.numberView = .
     @IBAction func rectangleTopButton(_ sender: UIButton) {
         sender.pulsate()
         viewStackView.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
@@ -82,16 +82,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         twoRectangles.setBackgroundImage(image3, for: UIControl.State.normal)
         rectangleNo.setBackgroundImage(image4, for: UIControl.State.normal)
     }
-    // THIS ACTION CALLS THE FUNCTION THAT I WILL SEEK FOR A PHOTO
-    @IBAction func tapImage1(_ sender: Any) {
-        tag = viewStackView.image1.tag
+    // CALL OF THE FUNCTION THAT I WILL SEEKS FOR THE PHOTOS
+    @IBAction func tapImage1(_ sender: UIImageView) {
+        tag = sender.tag
         imagePickerControllerChoice()
     }
    
     func imagePickerControllerChoice() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-         // Here we will choose an image whose type of resource is the photoLibrary
+         // choose an image whose type of resource is the photoLibrary
         imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePickerController, animated: true, completion: nil)
     }
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         switch tag {
         case 1:
             viewStackView.image1?.image = image
-            // HERE YOU MISS THE MOST BLUE TO INSTALL THE PHOTO SELECTED IN LIBRARY
+            // CHANGE THE MOST BLUE BY THE PHOTO SELECTED IN LIBRARY
             viewStackView.image1?.contentMode = .scaleAspectFill
         case 2:
             viewStackView.image2?.image = image
@@ -122,18 +122,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         picker.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func tapImage2(_ sender: Any) {
-        tag = viewStackView.image2.tag
+    @IBAction func tapImage2(_ sender: UIImageView) {
+        
+        tag = sender.tag
         imagePickerControllerChoice()
     }
     
-    @IBAction func tapImage3(_ sender: Any) {
-        tag = viewStackView.image3.tag
+    @IBAction func tapImage3(_ sender: UIImageView) {
+        tag = sender.tag
         imagePickerControllerChoice()
     }
     
-    @IBAction func tapImage4(_ sender: Any) {
-        tag = viewStackView.image4.tag
+    @IBAction func tapImage4(_ sender: UIImageView) {
+        tag = sender.tag
         imagePickerControllerChoice()
     }
     
@@ -142,10 +143,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         viewStackView.center = CGPoint(x: viewStackView.center.x + translation.x, y: viewStackView.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.viewStackView)
         if UIDevice.current.orientation.isPortrait {
-            //HERE WE DETECT THE Y VALUE OF THE VIEW AND COMPARE IT TO THE SUPER VIEW IF THERE IS EQUAL TO ZERO THE SHARING APPLICATIONS
+            // DETECT THE Y VALUE OF THE VIEW AND COMPARE IT TO THE SUPER VIEW IF THERE IS EQUAL TO ZERO THE SHARING APPLICATIONS
             if viewStackView.frame.origin.y <= view.frame.origin.y {
                 shareUsingActivityVC(viewStackView)
-                // HERE WE HAVE BEEN SHOWN AFTER REPOSITIONING THE VIEW TO THE CENTER WITH AN ANIMATION OF 4 SECONDS
+                // REPOSITIONING THE VIEW TO THE CENTER WITH AN ANIMATION OF 4 SECONDS
                 UIView.animate(withDuration: 0.4, animations: ({
                     self.viewStackView.center = self.view.center
                 }))
@@ -158,10 +159,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 }))
             }
         }
+        if (sender.state == UIGestureRecognizer.State.ended) {
+            UIView.animate(withDuration: 0.2, animations: ({
+                self.viewStackView.center = self.view.center
+            }))
+        }
     }
     
     @objc func shareUsingActivityVC(_ : AnyObject) {
-        // HERE'S THE MENU OF SHARING APPLICATIONS
+        // MENU OF SHARING APPLICATIONS
         UIGraphicsBeginImageContext(viewStackView.frame.size)
         viewStackView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
